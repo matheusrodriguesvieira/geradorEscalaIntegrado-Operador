@@ -1,0 +1,66 @@
+.bodyEditarEscalaContainer {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 92vh;
+    bottom: 0vh;
+    left: 10vw;
+    right: 10vw;
+    width: 80vw;
+    height: 7vh;
+    transition: 0.5s;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    /* background-color: blueviolet; */
+}
+
+.mainEditarEscalaContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(140, 140, 140);
+    /* padding-top: 10px; */
+    width: 100%;
+    height: 95%;
+    align-items: center;
+    /* background-color: #fff; */
+    /* overflow: hidden; */
+
+
+    /* padding: 1% 1%; */
+    border-radius: 25px;
+}
+
+.personalizadoBtnContainerTela4 {
+    width: 40%;
+    height: 70%;
+    display: flex;
+    /* padding: 0 1%; */
+    /* background-color: ; */
+    /* background-color: #009879; */
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.personalizadoBtnContainerTela4>button {
+    border-radius: 25px;
+    width: 45%;
+}
+
+.personalizadoBtn[cancelar] {
+    background-color: #B95946;
+}
+
+
+.inputContainer {
+    margin: 3% 2%;
+    width: 60%;
+    height: 80%;
+}
+
+.inputContainer>input {
+    border-radius: 25px;
+    border: 1px solid #444D55;
+    height: 100%;
+    width: 100%;
+    padding: 1% 2%;
+}
