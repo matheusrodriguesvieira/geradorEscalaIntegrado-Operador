@@ -6,6 +6,8 @@ var listaEscalas = [];
 
 var tituloEscalas = document.querySelector('[tituloEscalas]');
 let select = document.querySelector('[name = selectTurmas]');
+var btnLogout = document.querySelector('[logout]');
+var btnRecarregar = document.querySelector('[refresh]');
 var ulListaEscalas = document.querySelector('.listaContainer > ul');
 
 async function resetarParametros() {
@@ -131,6 +133,21 @@ function mostrarTela2() {
     sessionStorage.setItem('turma', turma);
 }
 
+function logout() {
+    if (confirm('Já está de saída?')) {
+        sessionStorage.clear();
+        window.location.replace('../login/index.html');
+    }
+}
+
+async function recarregarPagina() {
+    let componentLoading = document.querySelector('.component-loading-container');
+    componentLoading.classList.toggle('mostrar');
+    await resetarParametros();
+    atualizarTelaEscalas();
+    componentLoading.classList.toggle('mostrar');
+}
+
 function atribuirEventos() {
     select.addEventListener('change', async () => {
         let componentLoading = document.querySelector('.component-loading-container');
@@ -141,11 +158,15 @@ function atribuirEventos() {
         componentLoading.classList.toggle('mostrar');
     })
 
+    btnLogout.addEventListener('click', logout);
+
+    btnRecarregar.addEventListener('click', recarregarPagina);
+
 }
 
 
 window.addEventListener('load', async () => {
-
+    console.log('carregando');
     if (sessionStorage.getItem('data') == null) {
 
         window.location.replace('../login/index.html');
@@ -185,6 +206,27 @@ window.addEventListener('load', async () => {
                         window.location.replace('../login/index.html');
                     }, 3000);
                 } else {
+                    Toastify({
+                        text: `Bem vindo ${DADOS_USUARIO.usuario.toUpperCase()}`,
+                        duration: 10000,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        close: true,
+                        style: {
+                            background: 'linear-gradient(45deg, rgba(22,160,133,1) 3%, rgba(46,204,113,1) 35%, rgba(39,174,96,1) 97%)',
+                            color: 'rgba(255, 255, 255, 1)',
+                            fontWeight: 'bold',
+                            borderBottom: '5px solid rgba(185, 89, 70, 1.0)',
+                            // heght: '1500px',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+
+
+                        },
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                    }).showToast();
                     await carregarAplicacao();
                 }
             })

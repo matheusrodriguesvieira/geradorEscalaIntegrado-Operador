@@ -139,6 +139,14 @@ ul {
     list-style: none;
 }
 
+.icons-container {
+    width: 20%;
+    display: flex;
+    justify-content: end;
+    gap: 5%;
+    /* background-color: #B95946; */
+}
+
 .icon {
     height: 40px;
     /* background-color: #16a085; */
