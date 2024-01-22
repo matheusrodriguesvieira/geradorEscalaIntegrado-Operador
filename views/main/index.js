@@ -82,7 +82,7 @@ function atualizarTelaEscalas() {
                     <div>${escala.horariocriacao}</div>
                     <div class="controlesContainer">
                         <a class="icon" infoEscala${index}>
-                            <img src="../../assets/images/info.png" alt="" srcset="">
+                            <img src="../../assets/images/info.svg" alt="" srcset="">
                         </a>
                     </div>
                 </div>
